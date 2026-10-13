@@ -83,6 +83,12 @@ INSERT INTO public.proposals (
 )
 ON CONFLICT (id) DO NOTHING;
 
+-- Finance v1 validates new supplier references. Keep the privacy fixture valid
+-- without weakening the private supplier fields checked below.
+INSERT INTO public.suppliers(id,name) VALUES
+  ('bbbbbbbb-0000-0000-0000-000000000001','Synthetic privacy supplier')
+ON CONFLICT (id) DO NOTHING;
+
 INSERT INTO public.proposal_day_items (
   id, proposal_id, day_number, day_label, category, item_name, value,
   cost_price, commission_percent, supplier_id, quantity, item_index
@@ -233,17 +239,13 @@ END $$;
 -- (SQLSTATE 42501 insufficient_privilege), not merely return null as if
 -- auth.uid() were evaluated and found empty. Asserting "returns null" here
 -- would have silently passed even if PUBLIC/anon accidentally kept EXECUTE.
-DO $$
-BEGIN
-  PERFORM pg_temp.as_anon();
-  BEGIN
-    PERFORM public.get_my_published_proposal_link();
-    RAISE EXCEPTION 'FAILED: anon call should have been denied at the ACL layer, but it executed';
-  EXCEPTION
-    WHEN insufficient_privilege THEN
-      RAISE NOTICE 'OK: anon is denied EXECUTE on get_my_published_proposal_link (42501), not just returned null';
-  END;
-END $$;
+-- Check the ACL directly. The local Supabase PostgreSQL 17.6 runtime crashes
+-- when this DO block changes role via a helper then catches a cached function
+-- permission error; checking the effective privilege verifies the same ACL.
+SELECT pg_temp.assert(
+  NOT has_function_privilege('anon','public.get_my_published_proposal_link()','EXECUTE'),
+  'anon is denied EXECUTE on get_my_published_proposal_link at the ACL layer'
+);
 
 -- ---------------------------------------------------------------------
 -- 6. show_price_breakdown toggle: values appear/disappear accordingly

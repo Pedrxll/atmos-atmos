@@ -1,4 +1,4 @@
--- NOT EXECUTED. Run only against a disposable local DB after migrations. Always rollback.
+-- Run only against a disposable local DB after migrations. Always rollback.
 BEGIN;
 INSERT INTO auth.users(id) VALUES ('a1000000-0000-0000-0000-000000000001'),('a1000000-0000-0000-0000-000000000002'),('a1000000-0000-0000-0000-000000000003'),('a1000000-0000-0000-0000-000000000004');
 INSERT INTO public.user_roles(user_id,role) VALUES ('a1000000-0000-0000-0000-000000000003','admin');
@@ -49,8 +49,10 @@ RESET ROLE;
 SET LOCAL ROLE anon;
 SELECT set_config('request.jwt.claim.sub','',true);
 DO $$ BEGIN
-  BEGIN PERFORM public.get_guide_portal_context(); RAISE EXCEPTION 'anon context ACL'; EXCEPTION WHEN insufficient_privilege THEN NULL; END;
-  BEGIN PERFORM public.get_guide_portal_proposals(); RAISE EXCEPTION 'anon proposals ACL'; EXCEPTION WHEN insufficient_privilege THEN NULL; END;
+  -- Avoid the PostgreSQL 17.6 local runtime cached-call/role-switch crash;
+  -- assert effective EXECUTE privileges without invoking a cached denied call.
+  ASSERT NOT has_function_privilege('anon','public.get_guide_portal_context(uuid)','EXECUTE');
+  ASSERT NOT has_function_privilege('anon','public.get_guide_portal_proposals(uuid)','EXECUTE');
 END $$;
 RESET ROLE;
 ROLLBACK;

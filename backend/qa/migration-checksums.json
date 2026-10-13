@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "base_sha": "d8c57c2d7b2bc0b2a22f095b863fa1016a2eb6ba",
+  "source_matches_installed": true,
+  "migrations": {
+    "20261013170000_finance_core_v1.sql": "97c38bdb484e7216074b06c9dded652c66774788a05cde4b3ad4accb2d5ea040",
+    "20261013171000_finance_plans_v1.sql": "e80234282598ba742f39b69fa9e89b75e57d3bfd944b2ebc5f289f8a1391089c",
+    "20261013172000_finance_commands_v1.sql": "8bca66878975f93906384ee67d2ac590248eacd275db136c1d685c997769d90f",
+    "20261013173000_finance_reporting_v1.sql": "86baaba912602d01ced200548a9bb608202e200a3e30c570978b32df9c2c15ce",
+    "20261013174000_finance_bank_v1.sql": "e1efe55fc91f93caaaf35b6e82c59af6f9f9ca3afce4cfcc8bcb80f6cbde60dd",
+    "20261013175000_finance_proposal_v1.sql": "f49928fd67dee1ee05e454ed6e7ac992f258f7d2b35d684933bb10715090deb2",
+    "20261013176000_finance_operations_v1.sql": "ee21326b61b3b04d839eff3ab98db4b16833cfa1f3a492c58424080bcc437eef",
+    "20261013177000_finance_exports_v1.sql": "9230897ea97f2d6d947d463379e2e46473b6013cbf20afeec23f1d2f5d4d8673",
+    "20261013178000_finance_command_boundary_v1.sql": "c238efe0c3c947dc07a886bd856c32872a6042717f9e3521fb5eca6030818341",
+    "20261013179000_finance_lifecycle_v1.sql": "ed23ac818c2d1c36e9ce6c03fa8935b28ae81478a480a0d1ffd5647c3414722e",
+    "20261013180000_finance_read_contracts_v1.sql": "6fe68d057d2d1088bba5782b502f5cd8d6635f5a38f29e386804f566432dcd3d",
+    "20261013181000_finance_bank_jobs_v1.sql": "99984db4fe33db0aa27575bd49737d25c9d9be56d1e3fcb931ee052928e1f8d4"
+  },
+  "verified_at_utc": "2026-10-13T22:20:28.962892+00:00"
+}

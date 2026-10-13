@@ -1,0 +1,37 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "case": "anon finance command",
+      "status": 401,
+      "code": "42501",
+      "passed": true
+    },
+    {
+      "case": "authenticated legacy bundle",
+      "status": 403,
+      "code": "42501",
+      "passed": true
+    },
+    {
+      "case": "authenticated legacy receivable",
+      "status": 403,
+      "code": "42501",
+      "passed": true
+    },
+    {
+      "case": "authenticated direct financial insert",
+      "status": 403,
+      "code": "42501",
+      "passed": true
+    },
+    {
+      "case": "authenticated direct bank insert",
+      "status": 403,
+      "code": "42501",
+      "passed": true
+    }
+  ],
+  "database_healthy_after_denials": true,
+  "scope": "actual local Auth/PostgREST; denied calls, no business mutation"
+}

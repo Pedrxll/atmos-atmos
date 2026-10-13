@@ -41,8 +41,10 @@ DO $$ BEGIN
 END $$;
 SET LOCAL ROLE anon;
 DO $$ BEGIN
- BEGIN PERFORM public.is_full_admin('aa170000-0000-4000-8000-000000000001'); RAISE EXCEPTION 'Anon helper accepted'; EXCEPTION WHEN insufficient_privilege THEN NULL; END;
- BEGIN PERFORM public.manage_admin_team('add','aa170000-0000-4000-8000-000000000004','{}'); RAISE EXCEPTION 'Anon team accepted'; EXCEPTION WHEN insufficient_privilege THEN NULL; END;
+ -- Effective ACL assertions avoid a cached-call/role-switch crash in the
+ -- local PostgreSQL 17.6 platform while retaining the denial checks.
+ ASSERT NOT has_function_privilege('anon','public.is_full_admin(uuid)','EXECUTE');
+ ASSERT NOT has_function_privilege('anon','public.manage_admin_team(text,uuid,text[])','EXECUTE');
 END $$;
 SET LOCAL ROLE authenticated;
 SELECT set_config('request.jwt.claim.sub','aa170000-0000-4000-8000-000000000001',true);

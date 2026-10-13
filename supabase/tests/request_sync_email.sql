@@ -12,12 +12,14 @@ VALUES('Email sync fixture',' MIXED.Sync@Example.Invalid ','','Fixture','Organiz
 RESET ROLE;
 SELECT set_config('request.jwt.claim.sub',(SELECT admin_id::text FROM sync_context),true);
 SET LOCAL ROLE authenticated;
-DO $$ DECLARE p record; BEGIN
+DO $$ DECLARE p record; r jsonb; BEGIN
   FOR p IN SELECT id,segment FROM public.prospects WHERE email='mixed.sync@example.invalid' LOOP
-    PERFORM public.save_proposal_bundle(null,jsonb_build_object(
-      'title','Email sync fixture','status','draft','segment',p.segment,'prospect_id',p.id,'language','pt',
+    r:=public.finance_command_v1('proposal.save',jsonb_build_object('proposal',jsonb_build_object(
+      'title','Email sync fixture','segment',p.segment,'prospect_id',p.id,'language','pt',
       'num_people',3,'num_days',2,'start_date','2027-01-02','end_date','2027-01-03'),
-      '[]','[]','[]','[]','[]');
+      'items','[]'::jsonb,'costs','[]'::jsonb,'days','[]'::jsonb,'accommodations','[]'::jsonb),
+      'email-sync:'||p.id);
+    IF r ? 'error' THEN RAISE EXCEPTION 'V1 proposal sync failed: %',r; END IF;
   END LOOP;
   IF NOT EXISTS(SELECT 1 FROM public.quote_requests WHERE user_email=' Mixed.Sync@Example.Invalid '
     AND answers->>'groupSize'='3' AND answers->>'numDays'='2' AND answers->>'startDate'='2027-01-02') THEN

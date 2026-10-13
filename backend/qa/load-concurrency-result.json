@@ -1,0 +1,59 @@
+{
+  "suite": "finance-local-concurrency-load-recovery",
+  "passed": true,
+  "concurrency": {
+    "sessions_per_case": 20,
+    "cases": [
+      "distinct-key plan confirmation unique obligations",
+      "same-key payment one event",
+      "distinct-key competing payment version conflict, no overpayment"
+    ],
+    "passed": true,
+    "duration_seconds": 0.589,
+    "maximum_plan": {
+      "users": 20,
+      "origins": 200,
+      "titles": 500,
+      "p50_ms": 757.91,
+      "p95_ms": 952.15,
+      "unique_obligation_set": true
+    }
+  },
+  "envelope": {
+    "synthetic_titles": 100000,
+    "synthetic_settlement_events": 200000
+  },
+  "metrics": {
+    "titles200": {
+      "samples": 10,
+      "p50_ms": 11.78,
+      "p95_ms": 13.85
+    },
+    "report_due": {
+      "samples": 10,
+      "p50_ms": 174.08,
+      "p95_ms": 268.72
+    },
+    "report_cash": {
+      "samples": 10,
+      "p50_ms": 363.97,
+      "p95_ms": 525.56
+    },
+    "large_export": {
+      "rows": 200004,
+      "parts": 401,
+      "passed": true
+    }
+  },
+  "recovery": {
+    "passed": true,
+    "dump_bytes": 23989211,
+    "restore_seconds": 5.18,
+    "counts_sums_audit_parts_auth_storage_acl_rls_extensions_match": true,
+    "runtime_extension_excluded": "pg_cron; cluster cron.database_name differs",
+    "source_cron_jobs": 0,
+    "excluded_toc_entries": 19,
+    "bootstrap": "GraphQL extension wrapper copied from exact local source before ACL restore"
+  },
+  "scope": "isolated local synthetic PostgreSQL; database RPC latency, not production HTTP SLA"
+}

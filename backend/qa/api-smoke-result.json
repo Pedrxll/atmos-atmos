@@ -1,0 +1,67 @@
+{
+  "suite": "finance-api-real-http",
+  "passed": true,
+  "checks": [
+    "JWT and financial module enforced through actual Auth and PostgREST",
+    "Atomic supplier creation/link and retry",
+    "Manual prospect assigned to a configured segment stage",
+    "Saved negotiated prices survive catalogue change",
+    "Explicit plan confirmation generates one principal and one supplier obligation; different-key repeat stable",
+    "1000+1500 settlement, correction, derived balance and textual invoice",
+    "Due450/cash1500, private CSV/JSON export and invoice roundtrip",
+    "CSV rejection persisted/source row preserved, exact reconciliation and undo without new settlement",
+    "HTTP module matrix all7singlemodules, record scope, private downloads and configuration privilege",
+    "Large CSV preview and asynchronous atomic import20000rows, persisted progress and counts"
+  ],
+  "checks_count": 10,
+  "large_import": {
+    "input_bytes": 9357803,
+    "rows": 20000,
+    "preview_and_import_seconds": 22.993,
+    "job_state": "confirmed"
+  },
+  "module_matrix": [
+    {
+      "module": "site",
+      "checks": 6,
+      "passed": true
+    },
+    {
+      "module": "cadastros",
+      "checks": 6,
+      "passed": true
+    },
+    {
+      "module": "b2c",
+      "checks": 6,
+      "passed": true
+    },
+    {
+      "module": "b2b",
+      "checks": 6,
+      "passed": true
+    },
+    {
+      "module": "financeiro",
+      "checks": 6,
+      "passed": true
+    },
+    {
+      "module": "ferramentas",
+      "checks": 6,
+      "passed": true
+    },
+    {
+      "module": "configuracoes",
+      "checks": 6,
+      "passed": true
+    },
+    {
+      "module": "all7",
+      "checks": 6,
+      "passed": true
+    }
+  ],
+  "fixture_scope": "isolated synthetic local database",
+  "completed_at_utc": "2026-10-13T22:19:27Z"
+}

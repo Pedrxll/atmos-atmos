@@ -1,0 +1,4 @@
+ExcelJS 4.4.0 source scan, JavaScript lib files; uuid v4 only, no caller buffer.
+exceljs/lib/xlsx/xform/sheet/cf-ext/cf-rule-ext-xform.js:1:const {v4: uuidv4} = require('uuid');
+exceljs/lib/xlsx/xform/sheet/cf-ext/cf-rule-ext-xform.js:43:      model.x14Id = `{${uuidv4()}}`.toUpperCase();
+exceljs/lib/xlsx/xform/sheet/cf-ext/cf-rule-ext-xform.js:77:      id: model.x14Id || `{${uuidv4()}}`,

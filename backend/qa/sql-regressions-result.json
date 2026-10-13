@@ -1,0 +1,80 @@
+{
+  "suite": "finance-and-preserved-contracts-sql",
+  "passed": true,
+  "tests": [
+    {
+      "test": "finance_v1_core",
+      "passed": true,
+      "sha256": "9193e437940b11e9a33611b59497c97cba76d04a16f8368a8e7dd403a98c86fa",
+      "seconds": 0.102
+    },
+    {
+      "test": "finance_v1_operations",
+      "passed": true,
+      "sha256": "ea001848badccd58402f0ec6d62fc2a99776f31810c3541184c2524c97c7f495",
+      "seconds": 0.128
+    },
+    {
+      "test": "finance_v1_safety",
+      "passed": true,
+      "sha256": "6ac0d85c9e43df85526dc63b26d0cbeac0338c16e550ea82710c5490628dc58d",
+      "seconds": 0.177
+    },
+    {
+      "test": "approve_proposal_atomic",
+      "passed": true,
+      "sha256": "fc982f57558cf5dd8e211ac83416e49f571c70a0f8e7a1bfec3f0e7a74736c48",
+      "seconds": 0.067
+    },
+    {
+      "test": "clicksign_webhook_atomic",
+      "passed": true,
+      "sha256": "5dbe6c7613fcd5542ee520081f7fa71265b5cca9ec6bd5dbe01b7710018365fe",
+      "seconds": 0.071
+    },
+    {
+      "test": "request_pipeline_segments",
+      "passed": true,
+      "sha256": "5584c21926fdf469345f2171913cd20314e938c905d59bbc589d3fe564bb6702",
+      "seconds": 0.055
+    },
+    {
+      "test": "public_proposal_privacy",
+      "passed": true,
+      "sha256": "9dc36e29286cff784d5c4c78030be95533bbdefc8c057746d88eaeaffb213df3",
+      "seconds": 0.075
+    },
+    {
+      "test": "public_catalog_projection",
+      "passed": true,
+      "sha256": "7b40f9669085ffb8d2e523edb192b3b8fe6b6c06236b9acf647388474dd7ae36",
+      "seconds": 0.07
+    },
+    {
+      "test": "guide_portal",
+      "passed": true,
+      "sha256": "958cc7343b196de46b8aba3e4d4e04c77a8b4e3284519991392dacd2eb2117e5",
+      "seconds": 0.067
+    },
+    {
+      "test": "prospects_city",
+      "passed": true,
+      "sha256": "7d74d2dfea44f7e98e71c4545b40709a93089a0393812ca2ae2fcefae69eb2ee",
+      "seconds": 0.078
+    },
+    {
+      "test": "admin_team_authorization",
+      "passed": true,
+      "sha256": "57c9dfea98aec8d735b71361c382dd443dee66b0fc32018de5f7d65509ccb6c4",
+      "seconds": 0.085
+    },
+    {
+      "test": "request_sync_email",
+      "passed": true,
+      "sha256": "500ada90e38ca114b4f7204661676b6c750a02c9af9d402913cc7f3ce57a3f30",
+      "seconds": 0.08
+    }
+  ],
+  "scope": "isolated synthetic database; transaction rollback per suite",
+  "legacy_rpc_compatibility": "old bundle/cost-check/receivable RPCs deliberately revoked; exercised by v1 suites, not claimed backward compatible"
+}

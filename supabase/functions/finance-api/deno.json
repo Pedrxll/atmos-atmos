@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "lib": ["deno.ns", "dom", "dom.iterable", "es2022"]
+  },
+  "nodeModulesDir": "auto",
+  "imports": { "exceljs": "npm:exceljs@4.4.0" },
+  "tasks": {
+    "test": "deno test --allow-read --allow-env=READABLE_STREAM,NODE_DEBUG,GRACEFUL_FS_PLATFORM,TEST_GRACEFUL_FS_GLOBAL_PATCH,TEST_GRACEFUL_FS_DEBUG,BLUEBIRD_DEBUG,BLUEBIRD_WARNINGS,BLUEBIRD_LONG_STACK_TRACES,BLUEBIRD_W_FORGOTTEN_RETURN,NODE_ENV tests/",
+    "check": "deno check index.ts handler.ts statements.ts"
+  }
+}

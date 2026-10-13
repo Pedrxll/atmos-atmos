@@ -5,6 +5,7 @@ import { runInNewContext } from 'node:vm';
 import ts from 'typescript';
 import { describe, expect, it, vi } from 'vitest';
 import * as guards from '../../supabase/functions/_shared/adminModuleAuth';
+import { createEnrichmentHandler } from '../../supabase/functions/enrich-prospect/handler';
 
 const endpoints = ['discover-prospects', 'enrich-prospect', 'report-insights', 'calendly-setup', 'rename-storage-folders', 'meeting-reminders', 'r2-storage'];
 
@@ -33,6 +34,7 @@ function loadEndpoint(name: string, authorized: boolean, extraEnv: Record<string
   runInNewContext(compiled, {
     exports: {}, require: (id: string) => {
       if (id.includes('adminModuleAuth')) return guards;
+      if (id === './handler.ts' && name === 'enrich-prospect') return { createEnrichmentHandler };
       if (id.includes('supabase-js')) return { createClient };
       if (id.includes('/http/server.ts')) return { serve };
       if (id === 'npm:@aws-sdk/client-s3') return { S3Client, PutObjectCommand: Command, ListObjectsV2Command: Command, DeleteObjectCommand: Command, CopyObjectCommand: Command };

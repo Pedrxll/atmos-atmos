@@ -1,0 +1,11 @@
+╭ uuid: Missing buffer bounds check in v3/v5/v6 when buf is provided
+│ Severity:   moderate
+│ Package:    uuid
+│ Vulnerable: <11.1.1
+│ Patched:    >=11.1.1
+│ Path:       exceljs>uuid
+│ Info:       https://github.com/advisories/GHSA-w5hq-g745-h8pq
+╰ Actions:    review uuid
+
+Found 1 vulnerabilities
+Severity: 0 low, 1 moderate, 0 high, 0 critical

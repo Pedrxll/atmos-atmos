@@ -1,4 +1,20 @@
-project_id = "default"
+project_id = "atmos_finance_backend"
+
+[api]
+port = 55321
+
+[db]
+port = 55322
+shadow_port = 55320
+
+[studio]
+port = 55323
+
+[inbucket]
+port = 55324
+
+[functions.finance-api]
+verify_jwt = true
 
 [functions.discover-prospects]
 verify_jwt = false

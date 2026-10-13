@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "vitest": {
+    "files": 70,
+    "tests": 593,
+    "command": "NODE_OPTIONS=--no-experimental-webstorage npm test"
+  },
+  "deno": {
+    "tests": 24,
+    "typecheck": true,
+    "lint": true,
+    "format": true
+  },
+  "runtime": {
+    "node": "26.7.0",
+    "deno": "2.5.6",
+    "postgres": "17.6",
+    "supabase_cli": "2.90.0",
+    "python": "3.14.0"
+  },
+  "scope": "local synthetic/mocked; no external paid AI or Clicksign operation"
+}

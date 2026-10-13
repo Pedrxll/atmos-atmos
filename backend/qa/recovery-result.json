@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "dump_bytes": 23989211,
+  "restore_seconds": 5.18,
+  "counts_sums_audit_parts_auth_storage_acl_rls_extensions_match": true,
+  "runtime_extension_excluded": "pg_cron; cluster cron.database_name differs",
+  "source_cron_jobs": 0,
+  "excluded_toc_entries": 19,
+  "bootstrap": "GraphQL extension wrapper copied from exact local source before ACL restore"
+}

@@ -38,3 +38,6 @@ scratch/
 public/assets/produtos/
 public/assets/produtos/
 .vercel
+backend/.local/
+backend/.venv/
+backend/**/__pycache__/
