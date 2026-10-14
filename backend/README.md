@@ -2,6 +2,8 @@
 
 Implementação local na branch `codex/financeiro-backend`, baseada em `d8c57c2d7b2bc0b2a22f095b863fa1016a2eb6ba` (`codex/atmos-stabilization`). Backend em SQL/PostgreSQL+Supabase Edge/Deno. O frontend recebe contratos v1 e precisa integrar os comandos antes do cutover. Nenhuma migration/deploy/dado de produção foi alterado.
 
+Entrega publicada em 14/10/2026: [PR #1 no repositório original](https://github.com/linaheimpelcontato-ui/atmos-atmos/pull/1), em draft, via fork, com destino à base `codex/atmos-stabilization`. O backend continua aguardando integração da interface e homologação do ambiente real.
+
 - [API e contratos](docs/API.md)
 - [Regras preservadas e decisões](docs/REGRAS-FINANCEIRAS.md)
 - Migrations: `supabase/migrations/2026101317*.sql` e `2026101318*.sql`, em ordem lexicográfica.

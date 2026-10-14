@@ -1,6 +1,8 @@
 # Handoff para Gustavo — backend financeiro Atmos v1
 
-**Backend v1 implementado e validado localmente. Handoff gerado após concluir implementação e QA em 13/10/2026.** A próxima frente é integrar a interface, validar os casos reais e conduzir a publicação coordenada. Não houve alteração de produção, deploy, push ou chamada paga externa.
+**Backend v1 implementado e validado localmente. Handoff gerado após concluir implementação e QA em 13/10/2026.** A próxima frente é integrar a interface, validar os casos reais e conduzir a publicação coordenada. Na conclusão local de 13/10, não havia push. Não houve alteração de produção, deploy ou chamada paga externa.
+
+**Entrega no GitHub em 14/10/2026:** [PR #1 para revisão e integração](https://github.com/linaheimpelcontato-ui/atmos-atmos/pull/1), em draft, de [Pedrxll:codex/financeiro-backend](https://github.com/Pedrxll/atmos-atmos/tree/codex/financeiro-backend) para `codex/atmos-stabilization` no repositório original. A conta de entrega possui leitura no original, por isso o código foi publicado via fork. O commit de implementação/QA é `661464e1875f6861312334ed86657c10b1b6ecf6`; a atualização de publicação altera somente documentação.
 
 Base: `d8c57c2d7b2bc0b2a22f095b863fa1016a2eb6ba`, branch de implementação `codex/financeiro-backend`. O pacote de entrega informa o commit final, inclui patch contra essa base e cópias dos arquivos alterados. Compare com a versão atual do seu repositório antes de integrar.
 
